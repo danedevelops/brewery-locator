@@ -18,7 +18,7 @@ function App() {
       const res = await fetch("https://api.openbrewerydb.org/breweries");
       //Extract the Array contained in the 'events' field.
       const data = await res.json();
-      //Remove data that has no longitude or latitude
+      //Remove data that has no longitude or latitude provided and isnt located in the united states
       let breweries = [];
       for (let i = 0; i < data.length; i++) {
         if (data[i].latitude !== null && data[i].country === "United States") {

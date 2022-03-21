@@ -5,6 +5,8 @@ import React, { useRef, useState, useEffect } from "react";
 import LocationInfoBox from "./LocationInfoBox";
 //Main Context
 import { useMainContext } from "../Context/Context";
+//Map Styles
+import mapStyles from "../Utilities/mapStyles";
 
 function Map({ center, eventData }) {
   const { selectedEvent } = useMainContext();
@@ -54,6 +56,11 @@ function Map({ center, eventData }) {
     },
   }));
 
+  //Custom Google maps options
+  const options = {
+    styles: mapStyles,
+  };
+
   //Get clusters
   const { clusters, supercluster } = useSuperCluster({
     points,
@@ -78,6 +85,7 @@ function Map({ center, eventData }) {
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
         center={center}
         zoom={zoom}
+        options={options}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map }) => {
           mapRef.current = map;
