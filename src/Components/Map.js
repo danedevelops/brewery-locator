@@ -59,6 +59,7 @@ function Map({ center, eventData }) {
   //Custom Google maps options
   const options = {
     styles: mapStyles,
+    disableDefaultUI: true,
   };
 
   //Get clusters

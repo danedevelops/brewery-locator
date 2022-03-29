@@ -10,6 +10,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Getting rid of google watermark */
+.gm-style-cc {
+  display: none !important;
+}
+
+.gm-style a[href^="https://maps.google.com/maps"]
+{
+  display: none !important;
+}
+/* End of getting rid of google watermark */
+
 .header-bar {
   width: 100vw;
   background-color: firebrick;
